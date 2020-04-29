@@ -10,7 +10,8 @@ export default (props) =>
                 let img
                 const shader = new p5.Shader(p._renderer, VertexSource, FragmentSource)
                 p.setImg = (p5Instance) => {
-                    img = p5Instance.get(p5Instance.width/2, p5Instance.height/2, 50, 50)
+                    const size = 0.05 * p5Instance.height
+                    img = p5Instance.get(p5Instance.width/2, p5Instance.height/2, size, size)
                 }
                 p.setup = () => {
                     p.createCanvas(200, 200, p.WEBGL)
