@@ -15,14 +15,13 @@ export default (props) =>
                 p.setup = () => {
                     const ratio = img.width / img.height
                     p.createCanvas(props.height * ratio, props.height, p.WEBGL);
-                }
-                p.draw = () => {
                     p.shader(shader)
                     shader.setUniform('tex0', img)
                     shader.setUniform('u_saturation', props.editParameters.saturation)
                     shader.setUniform('u_contrast',   props.editParameters.contrast)
                     shader.setUniform('u_luminosity', props.editParameters.luminosity)
                     p.rect(0, 0, 0, 0)
+                    p.noLoop()
                 }
             })
             //

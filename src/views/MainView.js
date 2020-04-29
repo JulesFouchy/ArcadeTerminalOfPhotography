@@ -5,7 +5,10 @@ export default (state, actions) =>
     h('div',
         {
             id: 'mainView',
-            oncreate: () => {}
+            oncreate: () => {
+                window.onmouseup = () => actions.stopDraggingValue()
+                window.onmousemove = (e) => actions.checkDragging(e.movementX)
+            }
         },
         // ------------- SECTIONS --------------
         [
