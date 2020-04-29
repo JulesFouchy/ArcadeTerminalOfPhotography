@@ -15,13 +15,17 @@ export default {
             bDraggingValue: false
         }
     },
-    updateDragging: (delta) => state => {
-        const newParams = state.editParameters
-        newParams[state.dragTarget] += delta * 0.003
-        state.onParamChangeList.forEach( f => f(newParams))
-        return {
-            ...state,
-            editParameters: newParams
+    checkDragging: (delta) => state => {
+        if (!state.bDraggingValue)
+            return state
+        else {
+            const newParams = state.editParameters
+            newParams[state.dragTarget] += delta * 0.003
+            state.onParamChangeList.forEach( f => f(newParams))
+            return {
+                ...state,
+                editParameters: newParams
+            }
         }
     },
     addCallbackForParamChange: (f) => state => ({
