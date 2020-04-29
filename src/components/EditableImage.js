@@ -14,15 +14,21 @@ export default (props) =>
                 }
                 p.setup = () => {
                     const ratio = img.width / img.height
-                    p.createCanvas(props.height * ratio, props.height, p.WEBGL);
-                    p.shader(shader)
-                    shader.setUniform('tex0', img)
-                    shader.setUniform('u_saturation', props.editParameters.saturation)
-                    shader.setUniform('u_contrast',   props.editParameters.contrast)
-                    shader.setUniform('u_luminosity', props.editParameters.luminosity)
-                    p.rect(0, 0, 0, 0)
+                    p.createCanvas(props.height * ratio, props.height, p.WEBGL)
+                    p.onParametersChanged(props.editParameters)
                     p.noLoop()
                 }
+                p.onParametersChanged = (editParameters) => {
+                    p.shader(shader)
+                    shader.setUniform('tex0', img)
+                    shader.setUniform('u_saturation', editParameters.saturation)
+                    shader.setUniform('u_contrast',   editParameters.contrast)
+                    shader.setUniform('u_luminosity', editParameters.luminosity)
+                    p.rect(0, 0, 0, 0)
+                }
+                props.setCallbackForParamChange(
+                    (params) => p.onParametersChanged(params)
+                )
             })
             //
         }

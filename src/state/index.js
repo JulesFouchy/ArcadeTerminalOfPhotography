@@ -6,4 +6,5 @@ export default {
         whiteBalance: 0
     },
     bDraggingValue: false,
+    onParamChangeList: []
 }

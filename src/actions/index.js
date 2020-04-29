@@ -15,10 +15,15 @@ export default {
         else {
             const newParams = state.editParameters
             newParams[state.dragTarget] += delta * 0.003
+            state.onParamChangeList.forEach( f => f(newParams))
             return {
                 ...state,
                 editParameters: newParams
             }
         }
-    }
+    },
+    addCallbackForParamChange: (f) => state => ({
+        ...state,
+        onParamChangeList: [...state.onParamChangeList, f]
+    })
 }

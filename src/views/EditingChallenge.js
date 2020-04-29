@@ -10,16 +10,18 @@ export default (state, actions) => {
         Page({
             title: 'Editing Challenge',
             children: [
-                // EditableImage({
-                //     height: 400,
-                //     src: TestImg,
-                //     editParameters: state.editParameters,
-                // }),
-                // EditableImage({
-                //     height: 400,
-                //     src: TestImg2,
-                //     editParameters: state.editParameters,
-                // }),
+                EditableImage({
+                    height: 400,
+                    src: TestImg,
+                    editParameters: state.editParameters,
+                    setCallbackForParamChange: (f) => {actions.addCallbackForParamChange(f)}
+                }),
+                EditableImage({
+                    height: 400,
+                    src: TestImg2,
+                    editParameters: state.editParameters,
+                    setCallbackForParamChange: (f) => {actions.addCallbackForParamChange(f)}
+                }),
                 EditSettings(state, actions)
             ]
         })
