@@ -8,6 +8,7 @@ export default (props) =>
         }, [
             h('p', {}, props.name),
             h('p', {
+                class: 'draggableValue',
                 onselectstart: e => {
                     e.preventDefault()
                     props.onDragStart()

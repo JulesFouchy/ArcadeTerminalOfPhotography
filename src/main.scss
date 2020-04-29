@@ -21,3 +21,17 @@ body {
 	border-radius: 2px;
 	border-color: $myBlue;
 }
+
+/* --------------------------------- */
+/* ------------ SLIDERS ------------ */
+/* --------------------------------- */
+
+.draggableValue {
+	&:hover {
+		cursor: ew-resize;
+	}
+}
+
+html .dragging {
+	cursor: ew-resize;
+}
