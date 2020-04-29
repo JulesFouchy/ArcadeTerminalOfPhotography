@@ -39,7 +39,7 @@ module.exports = (env, argv) => {
     devtool: 'source-map', // for dev debug
     watch: devMode, // for update
     output: {
-      path: path.resolve(__dirname, './docs'),
+      path: path.resolve(__dirname, './build'),
       filename: 'bundle.js'
     },
     devServer: {
