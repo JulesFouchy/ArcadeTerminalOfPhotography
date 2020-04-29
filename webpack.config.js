@@ -77,6 +77,10 @@ module.exports = (env, argv) => {
             test: /\.(png|svg|jpg|gif)$/,
             use: ['file-loader'],
         },
+        {
+            test: /\.(frag|vert)$/i,
+            use: 'raw-loader',
+        },
       ]
     },
     plugins: [

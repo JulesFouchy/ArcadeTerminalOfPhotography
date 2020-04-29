@@ -11,11 +11,13 @@ export default (state, actions) => {
             children: [
                 EditableImage({
                     height: 400,
-                    src: TestImg
+                    src: TestImg,
+                    editParameters: state.editParameters,
                 }),
                 EditableImage({
                     height: 400,
-                    src: TestImg2
+                    src: TestImg2,
+                    editParameters: state.editParameters,
                 }),
             ]
         })
