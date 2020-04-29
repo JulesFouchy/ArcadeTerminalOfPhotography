@@ -48,12 +48,12 @@ module.exports = (env, argv) => {
     },
     module: {
       rules: [
-        { // for syntaxe check
-          enforce: "pre",
-          test: /(\.jsx|\.js)$/,
-          loader: 'eslint-loader',
-          exclude: /node_modules/
-        },
+        // { // for syntaxe check
+        //   enforce: "pre",
+        //   test: /(\.jsx|\.js)$/,
+        //   loader: 'eslint-loader',
+        //   exclude: /node_modules/
+        // },
         { // for  web browsers compatibility
           test: /(\.jsx|\.js)$/,
           loader: 'babel-loader',
