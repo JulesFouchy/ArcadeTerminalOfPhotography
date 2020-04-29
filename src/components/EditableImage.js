@@ -6,7 +6,7 @@ export default (props) =>
     h('div', {
         oncreate: () => {
             // Create a P5 canvas
-            new p5( p => {
+            const myP5 = new p5( p => {
                 let img
                 const shader = new p5.Shader(p._renderer, VertexSource, FragmentSource)
                 p.preload = () => {
@@ -30,6 +30,7 @@ export default (props) =>
                     (params) => p.onParametersChanged(params)
                 )
             })
+            props.withP5Instance(myP5)
             //
         }
     })
