@@ -72,7 +72,11 @@ module.exports = (env, argv) => {
               options: { sourceMap: devMode } // for dev debug
             }
           ]
-        }
+        },
+        { // for images
+            test: /\.(png|svg|jpg|gif)$/,
+            use: ['file-loader'],
+        },
       ]
     },
     plugins: [
