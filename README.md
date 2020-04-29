@@ -1,1 +1,1 @@
-DixImacGallery
+Arcade Terminal of Photography

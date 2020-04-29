@@ -1,0 +1,22 @@
+$myBlue: #000dff;
+
+/* --------------------------------- */
+/* -------- BODY & SECTIONS -------- */
+/* --------------------------------- */
+
+body {
+	font-family: Roboto;
+	margin: 1% 5%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+
+	background: black;
+	color: white;
+}
+
+.neonBox {
+	border: solid;
+	border-radius: 2px;
+	border-color: $myBlue;
+}
