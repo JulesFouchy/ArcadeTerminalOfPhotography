@@ -32,9 +32,6 @@ export default (props) =>
                     shader.setUniform('tex0', img)
                     p.rect(0, 0, 0, 0)
                 }
-                props.setCallbackForEditedImageChanged(
-                    (p5Instance) => p.onEditedImageChanged(p5Instance)
-                )
             })
             props.withP5Instance(myP5)
             //

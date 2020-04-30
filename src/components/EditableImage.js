@@ -26,9 +26,6 @@ export default (props) =>
                     shader.setUniform('u_luminosity', editParameters.luminosity)
                     p.rect(0, 0, 0, 0)
                 }
-                props.setCallbackForParamChange(
-                    (params) => p.onParametersChanged(params)
-                )
             })
             props.withP5Instance(myP5)
             //

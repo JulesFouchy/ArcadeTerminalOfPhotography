@@ -6,8 +6,6 @@ export default {
         whiteBalance: 0
     },
     bDraggingValue: false,
-    onParamChangeList: [],
-    onEditImgChangeList: [],
     p5editingImg: null,
     p5zoomOnImg: null,
 }
