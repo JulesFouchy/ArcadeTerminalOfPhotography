@@ -17,10 +17,13 @@ export default (state, actions) => {
                     p5editingImg: state.p5editingImg,
                     editParameters: state.editParameters,
                     withP5Instance: (p5instance) => actions.setEditingImgP5(p5instance),
+                    setZoomOnImgPosition: (clic) => actions.setZoomOnImgPosition(clic)
                 }),
                 ZoomOnCanvas({
                     p5zoomOnImg: state.p5zoomOnImg,
                     p5editingImg: state.p5editingImg,
+                    zoomPosX: state.zoomOnImgX,
+                    zoomPosY: state.zoomOnImgY,
                     withP5Instance: (p5instance) => actions.setZoomOnImgP5(p5instance),
                 }),
                 ZoomOnPixel({

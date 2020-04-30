@@ -9,4 +9,6 @@ export default {
     p5editingImg: null,
     p5zoomOnImg: null,
     p5zoomOnPixel: null,
+    zoomOnImgX: 0.5,
+    zoomOnImgY: 0.5,
 }

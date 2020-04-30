@@ -45,4 +45,11 @@ export default {
             p5zoomOnPixel: p5instance
         }
     },
+    setZoomOnImgPosition: (clic) => state => {
+        return {
+            ...state,
+            zoomOnImgX: clic.x,
+            zoomOnImgY: clic.y,
+        }
+    }
 }

@@ -18,6 +18,22 @@ export default (props) =>
                     p.onParametersChanged(props.editParameters)
                     p.noLoop()
                 }
+                p.mousePressed = () => {
+                    const o = {
+                        x: p.mouseX/p.width,
+                        y: p.mouseY/p.height
+                    }
+                    if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1)
+                        props.setZoomOnImgPosition(o)
+                }
+                p.mouseDragged = () => {
+                    const o = {
+                        x: p.mouseX/p.width,
+                        y: p.mouseY/p.height
+                    }
+                    if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1)
+                        props.setZoomOnImgPosition(o)
+                }
                 p.onParametersChanged = (editParameters) => {
                     p.shader(shader)
                     shader.setUniform('tex0', img)
