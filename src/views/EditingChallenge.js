@@ -3,8 +3,7 @@ import Page from '../components/Page'
 import EditableImage from '../components/EditableImage'
 import ZoomOnCanvas from '../components/ZoomOnCanvas'
 import ZoomOnPixel from '../components/ZoomOnPixel'
-import TestImg from '../testImg.png'
-import TestImg2 from '../testImg2.png'
+import TestImg from '../testImg.jpg'
 import EditSettings from './EditSettings'
 
 export default (state, actions) => {
