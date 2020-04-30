@@ -32,5 +32,8 @@ export default (props) =>
             })
             props.withP5Instance(myP5)
             //
+        },
+        onupdate: () => {
+            props.p5editingImg.onParametersChanged(props.editParameters)
         }
     })

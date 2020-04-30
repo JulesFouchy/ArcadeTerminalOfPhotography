@@ -14,12 +14,16 @@ export default (state, actions) => {
                 EditableImage({
                     height: 400,
                     src: TestImg,
+                    p5editingImg: state.p5editingImg,
                     editParameters: state.editParameters,
                     setCallbackForParamChange: (f) => actions.addCallbackForParamChange(f),
-                    withP5Instance: (p5instance) => actions.setEditingImgP5(p5instance)
+                    withP5Instance: (p5instance) => actions.setEditingImgP5(p5instance),
                 }),
                 ZoomOnCanvas({
-                    setCallbackForEditedImageChanged: (f) => actions.addCallbackForEditedImgChange(f)
+                    p5zoomOnImg: state.p5zoomOnImg,
+                    p5editingImg: state.p5editingImg,
+                    setCallbackForEditedImageChanged: (f) => actions.addCallbackForEditedImgChange(f),
+                    withP5Instance: (p5instance) => actions.setZoomOnImgP5(p5instance),
                 }),
                 EditSettings(state, actions)
             ]

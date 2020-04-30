@@ -8,5 +8,6 @@ export default {
     bDraggingValue: false,
     onParamChangeList: [],
     onEditImgChangeList: [],
-    editingImgP5: null,
+    p5editingImg: null,
+    p5zoomOnImg: null,
 }
