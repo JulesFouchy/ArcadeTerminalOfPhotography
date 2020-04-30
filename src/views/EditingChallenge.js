@@ -2,6 +2,7 @@ import { h } from 'hyperapp'
 import Page from '../components/Page'
 import EditableImage from '../components/EditableImage'
 import ZoomOnCanvas from '../components/ZoomOnCanvas'
+import ZoomOnPixel from '../components/ZoomOnPixel'
 import TestImg from '../testImg.png'
 import TestImg2 from '../testImg2.png'
 import EditSettings from './EditSettings'
@@ -22,6 +23,11 @@ export default (state, actions) => {
                     p5zoomOnImg: state.p5zoomOnImg,
                     p5editingImg: state.p5editingImg,
                     withP5Instance: (p5instance) => actions.setZoomOnImgP5(p5instance),
+                }),
+                ZoomOnPixel({
+                    p5zoomOnPixel: state.p5zoomOnPixel,
+                    p5zoomOnImg: state.p5zoomOnImg,
+                    withP5Instance: (p5instance) => actions.setZoomOnPixelP5(p5instance),
                 }),
                 EditSettings(state, actions)
             ]

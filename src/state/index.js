@@ -8,4 +8,5 @@ export default {
     bDraggingValue: false,
     p5editingImg: null,
     p5zoomOnImg: null,
+    p5zoomOnPixel: null,
 }

@@ -27,6 +27,7 @@ export default (props) =>
                     p.noLoop()
                 }
                 p.onEditedImageChanged = (p5Instance) => {
+                    p.bDrawingStarted = true
                     p.setImg(p5Instance)
                     p.shader(shader)
                     shader.setUniform('tex0', img)

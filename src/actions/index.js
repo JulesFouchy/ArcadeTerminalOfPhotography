@@ -39,4 +39,10 @@ export default {
             p5zoomOnImg: p5instance
         }
     },
+    setZoomOnPixelP5: (p5instance) => state => {
+        return {
+            ...state,
+            p5zoomOnPixel: p5instance
+        }
+    },
 }
