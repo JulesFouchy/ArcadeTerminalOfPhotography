@@ -8,14 +8,17 @@ export default (props) =>
             // Create a P5 canvas
             const myP5 = new p5( p => {
                 let img
+                let pg
                 const shader = new p5.Shader(p._renderer, VertexSource, FragmentSource)
+                p.getPG = () => pg
                 p.preload = () => {
                     img = p.loadImage(props.src)
                 }
                 p.setup = () => {
                     const ratio = img.width / img.height
                     p.createCanvas(props.height * ratio, props.height, p.WEBGL)
-                    p.onParametersChanged(props.editParameters)
+                    pg = p.createGraphics(props.height * ratio, props.height, p.WEBGL)
+                    p.onParametersChanged(props.editParameters, props.zoom)
                     p.noLoop()
                 }
                 p.mousePressed = () => {
@@ -34,19 +37,46 @@ export default (props) =>
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1)
                         props.setZoomOnImgPosition(o)
                 }
-                p.onParametersChanged = (editParameters) => {
-                    p.shader(shader)
+                p.onParametersChanged = (editParameters, zoom) => {
+                    pg.shader(shader)
                     shader.setUniform('tex0', img)
                     shader.setUniform('u_saturation', editParameters.saturation)
                     shader.setUniform('u_contrast',   editParameters.contrast)
                     shader.setUniform('u_luminosity', editParameters.luminosity)
-                    p.rect(0, 0, 0, 0)
+                    pg.rect(0, 0, 0, 0)
+                    p.image(pg, -p.width/2, -p.height/2, p.width, p.height)
+                    //
+                    // p.stroke(255, 255, 0)
+                    // p.fill(255, 0, 0)
+                    // p.rect(p.random(p.width) - p.width/2, p.random(p.height) - p.height/2, 100, 100)
+                    // p.noStroke()
+
+                    // shader.setUniform('u_zoomX', zoom.x)
+                    // shader.setUniform('u_zoomY', zoom.y)
+                    // shader.setUniform('u_zoomW', zoom.sizeProp * p.height / p.width)
+                    // shader.setUniform('u_zoomH', zoom.sizeProp)
+                    // shader.setUniform('u_invRatio', p.height / p.width)
+
+                    p.fill(255, 0, 0)
+                    p.noStroke()
+                    const weight = 2
+                    const w = p.width
+                    const h = p.height
+                    const s = p.height * zoom.sizeProp
+                    const x = (zoom.x-0.5) * p.width
+                    const y = (zoom.y-0.5) * p.height
+                    p.rect(x-s/2, y-s/2-weight, s, weight)
+                    p.rect(x-s/2, y+s/2, s, weight)
+                    p.rect(x-s/2-weight, y-s/2-weight, weight, s + 2*weight)
+                    p.rect(x+s/2, y-s/2-weight, weight, s + 2*weight)
+                    //p.rect((zoom.x-0.5) * p.width - weight, (zoom.y-0.5) * p.height - weight, p.height * zoom.sizeProp + weight*3, p.height * zoom.sizeProp + weight*3)
+                    
                 }
             })
             props.withP5Instance(myP5)
             //
         },
         onupdate: () => {
-            props.p5editingImg.onParametersChanged(props.editParameters)
+            props.p5editingImg.onParametersChanged(props.editParameters, props.zoom)
         }
     })

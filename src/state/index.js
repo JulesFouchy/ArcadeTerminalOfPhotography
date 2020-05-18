@@ -11,4 +11,5 @@ export default {
     p5zoomOnPixel: null,
     zoomOnImgX: 0.5,
     zoomOnImgY: 0.5,
+    zoomOnImgHeightProportion: 0.05,
 }
