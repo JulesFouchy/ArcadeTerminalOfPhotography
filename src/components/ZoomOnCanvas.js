@@ -24,7 +24,7 @@ export default (props) =>
                 }
                 p.setup = () => {
                     p.createCanvas(200, 200, p.WEBGL)
-                    //p.noLoop()
+                    p.noLoop()
                 }
                 p.mousePressed = () => {
                     const o = {
