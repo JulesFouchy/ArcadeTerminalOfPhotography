@@ -1,6 +1,7 @@
 import { h } from 'hyperapp'
 import VertexSource from '../myShader.vert'
 import FragmentSource from '../myShader.frag'
+import RgbShiftSource from '../rgbShift.frag'
 
 export default (props) =>
     h('div', {
@@ -13,6 +14,8 @@ export default (props) =>
                 let pgExport
                 const shader = new p5.Shader(p._renderer, VertexSource, FragmentSource)
                 const shader2 = new p5.Shader(p._renderer, VertexSource, FragmentSource)
+                const shaderRgbShift =  new p5.Shader(p._renderer, VertexSource, RgbShiftSource)
+                const shaderRgbShift2 = new p5.Shader(p._renderer, VertexSource, RgbShiftSource)
                 p.getPG = () => pg
                 p.preload = () => {
                     img = p.loadImage(props.src)
@@ -74,7 +77,8 @@ export default (props) =>
                         props.setZoomOnImgPosition(o)
                     }
                 }
-                p.renderOnPg = (thepg, theshader, editParameters) => {
+                p.renderOnPg = (thepg, theshader, shaderRgb, editParameters) => {
+                    // Effects
                     thepg.shader(theshader)
                     theshader.setUniform('tex0', img)
                     theshader.setUniform('u_luminosity',   editParameters.luminosity)
@@ -82,12 +86,18 @@ export default (props) =>
                     theshader.setUniform('u_saturation',   editParameters.saturation)
                     theshader.setUniform('u_whiteBalance', editParameters.whiteBalance)
                     theshader.setUniform('u_tint',         editParameters.tint)
-                    //theshader.setUniform('u_rgbShift', editParameters.rgbShift)
+                    thepg.rect(0, 0, 0, 0)
+                    // RGB shift
+                    const aglDir = 0
+                    thepg.shader(shaderRgb)
+                    shaderRgb.setUniform('tex0', thepg)
+                    shaderRgb.setUniform('u_offsetX', Math.cos(aglDir) * editParameters.rgbShift)
+                    shaderRgb.setUniform('u_offsetY', Math.sin(aglDir) * editParameters.rgbShift)
                     thepg.rect(0, 0, 0, 0)
                 }
                 p.onParametersChanged = (editParameters, zoom) => {
                     p.lastEditParameters = editParameters
-                    p.renderOnPg(pg, shader, editParameters)
+                    p.renderOnPg(pg, shader, shaderRgbShift, editParameters)
                     p.image(pg, -p.width/2, -p.height/2, p.width, p.height)
                     // Frame of zoom
                     p.fill(255, 0, 0)
@@ -108,7 +118,7 @@ export default (props) =>
                     p.rect(x-s/2, y+s/2-weight, s, weight)
                 }
                 p.download = () => {
-                    p.renderOnPg(pgExport, shader2, p.lastEditParameters)
+                    p.renderOnPg(pgExport, shader2, shaderRgbShift2, p.lastEditParameters)
                     pgExport.save('myImage.jpg')
                 }
             })
