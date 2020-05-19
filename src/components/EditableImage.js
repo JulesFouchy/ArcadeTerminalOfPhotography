@@ -98,10 +98,6 @@ export default (props) =>
                     const s = p.height * zoom.sizeProp
                     const x = (zoom.x-0.5) * p.width
                     const y = (zoom.y-0.5) * p.height
-                    // p.rect(x-s/2, y-s/2, s, weight)
-                    // p.rect(x-s/2, y+s/2, s, weight)
-                    // p.rect(x-s/2, y-s/2, weight, s + weight)
-                    // p.rect(x+s/2, y-s/2, weight, s + weight)
                     // top
                     p.rect(x-s/2, y-s/2, s, weight)
                     // left

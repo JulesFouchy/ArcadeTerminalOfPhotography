@@ -78,10 +78,14 @@ export default (props) =>
                     const s = p.height / 15
                     const x = ((pixX+0.5) / 15 -0.5) * p.width
                     const y = ((pixY+0.5) / 15 -0.5) * p.height
-                    p.rect(x-s/2, y-s/2-weight, s, weight)
-                    p.rect(x-s/2, y+s/2, s, weight)
-                    p.rect(x-s/2-weight, y-s/2-weight, weight, s + 2*weight)
-                    p.rect(x+s/2, y-s/2-weight, weight, s + 2*weight)
+                    // top
+                    p.rect(x-s/2, y-s/2, s, weight)
+                    // left
+                    p.rect(x-s/2, y-s/2, weight, s)
+                    // right
+                    p.rect(x+s/2-weight, y-s/2, weight, s)
+                    // bot
+                    p.rect(x-s/2, y+s/2-weight, s, weight)
                 }
             })
             props.withP5Instance(myP5)
