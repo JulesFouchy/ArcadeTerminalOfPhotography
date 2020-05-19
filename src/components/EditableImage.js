@@ -7,6 +7,7 @@ export default (props) =>
         oncreate: () => {
             // Create a P5 canvas
             const myP5 = new p5( p => {
+                p.bDragging = false
                 let img
                 let pg
                 const shader = new p5.Shader(p._renderer, VertexSource, FragmentSource)
@@ -36,6 +37,28 @@ export default (props) =>
                     }
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1)
                         props.setZoomOnImgPosition(o)
+                }
+                p.trySetZoomPos = () => {
+                    const o = {
+                        x: p.mouseX/p.width,
+                        y: p.mouseY/p.height
+                    }
+                    if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1) {
+                        props.setZoomOnImgPosition(o)
+                        return true
+                    }
+                    return false
+                }
+                p.mousePressed = () => {
+                    if (p.trySetZoomPos())
+                        p.bDragging = true
+                }
+                p.mouseReleased = () => {
+                    p.bDragging = false
+                }
+                p.mouseDragged = () => {
+                    if (p.bDragging)
+                        p.trySetZoomPos()
                 }
                 p.onParametersChanged = (editParameters, zoom) => {
                     pg.shader(shader)
