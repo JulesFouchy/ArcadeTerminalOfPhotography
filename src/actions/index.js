@@ -56,5 +56,9 @@ export default {
         ...state,
         zoomOnPixX: coords.x,
         zoomOnPixY: coords.y,
+    }),
+    setDownloadFunction: (f) => state => ({
+        ...state,
+        downloadFunction: f,
     })
 }

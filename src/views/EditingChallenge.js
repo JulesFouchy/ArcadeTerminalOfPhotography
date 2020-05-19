@@ -21,7 +21,10 @@ export default (state, actions) => {
                         y: state.zoomOnImgY,
                         sizeProp: state.zoomOnImgHeightProportion,
                     },
-                    withP5Instance: (p5instance) => actions.setEditingImgP5(p5instance),
+                    withP5Instance: (p5instance) => {
+                        actions.setEditingImgP5(p5instance)
+                        actions.setDownloadFunction(p5instance.download)
+                    },
                     setZoomOnImgPosition: (clic) => actions.setZoomOnImgPosition(clic)
                 }),
                 ZoomOnCanvas({
@@ -42,7 +45,10 @@ export default (state, actions) => {
                     pixY: state.zoomOnPixY,
                     withP5Instance: (p5instance) => actions.setZoomOnPixelP5(p5instance),
                 }),
-                EditSettings(state, actions)
+                EditSettings(state, actions),
+                h('button', {
+                    onclick: state.downloadFunction
+                }, 'Download')
             ]
         })
     )
