@@ -11,9 +11,10 @@ const createSliderBox = (target, state, actions) =>
 
 export default (state, actions) =>
     h('div', {id: 'editSettings'}, [
-            createSliderBox('contrast', state, actions),
-            createSliderBox('luminosity', state, actions),
-            createSliderBox('saturation', state, actions),
-            createSliderBox('whiteBalance', state, actions),
-        ]
-    )
+        createSliderBox('luminosity', state, actions),
+        createSliderBox('contrast', state, actions),
+        createSliderBox('saturation', state, actions),
+        createSliderBox('whiteBalance', state, actions),
+        createSliderBox('tint', state, actions),
+        createSliderBox('rgbShift', state, actions),
+    ])

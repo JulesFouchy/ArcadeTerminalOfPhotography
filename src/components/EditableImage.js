@@ -63,9 +63,12 @@ export default (props) =>
                 p.onParametersChanged = (editParameters, zoom) => {
                     pg.shader(shader)
                     shader.setUniform('tex0', img)
-                    shader.setUniform('u_saturation', editParameters.saturation)
-                    shader.setUniform('u_contrast',   editParameters.contrast)
-                    shader.setUniform('u_luminosity', editParameters.luminosity)
+                    shader.setUniform('u_luminosity',   editParameters.luminosity)
+                    shader.setUniform('u_contrast',     editParameters.contrast)
+                    shader.setUniform('u_saturation',   editParameters.saturation)
+                    shader.setUniform('u_whiteBalance', editParameters.whiteBalance)
+                    shader.setUniform('u_tint',         editParameters.tint)
+                    //shader.setUniform('u_rgbShift', editParameters.rgbShift)
                     pg.rect(0, 0, 0, 0)
                     p.image(pg, -p.width/2, -p.height/2, p.width, p.height)
                     // Frame of zoom
