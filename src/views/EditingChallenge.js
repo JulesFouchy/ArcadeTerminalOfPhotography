@@ -35,6 +35,8 @@ export default (state, actions) => {
                 ZoomOnPixel({
                     p5zoomOnPixel: state.p5zoomOnPixel,
                     p5zoomOnImg: state.p5zoomOnImg,
+                    pixX: state.zoomOnPixX,
+                    pixY: state.zoomOnPixY,
                     withP5Instance: (p5instance) => actions.setZoomOnPixelP5(p5instance),
                 }),
                 EditSettings(state, actions)

@@ -12,4 +12,6 @@ export default {
     zoomOnImgX: 0.5,
     zoomOnImgY: 0.5,
     zoomOnImgHeightProportion: 0.05,
+    zoomOnPixX: 7,
+    zoomOnPixY: 7,
 }
