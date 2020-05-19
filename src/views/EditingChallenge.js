@@ -30,6 +30,8 @@ export default (state, actions) => {
                     zoomPosX: state.zoomOnImgX,
                     zoomPosY: state.zoomOnImgY,
                     zoomOnImgHeightProportion: state.zoomOnImgHeightProportion,
+                    pixX: state.zoomOnPixX,
+                    pixY: state.zoomOnPixY,
                     withP5Instance: (p5instance) => actions.setZoomOnImgP5(p5instance),
                 }),
                 ZoomOnPixel({
