@@ -28,14 +28,23 @@ export default (props) =>
                     pg = p.createGraphics(200, 200, p.WEBGL)
                     p.noLoop()
                 }
-                p.mousePressed = () => {
+                p.trySetPixel = () => {
                     const o = {
                         x: p.mouseX/p.width,
                         y: p.mouseY/p.height
                     }
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1) {
-                        
+                        props.setPixel({
+                            x: Math.floor(o.x * 15),
+                            y: Math.floor(o.y * 15),
+                        })
                     }
+                }
+                p.mousePressed = () => {
+                    p.trySetPixel()
+                }
+                p.mouseDragged = () => {
+                    p.trySetPixel()
                 }
                 p.onEditedImageChanged = (p5Instance, zoomPosX, zoomPosY, pixX, pixY) => {
                     p.bDrawingStarted = true

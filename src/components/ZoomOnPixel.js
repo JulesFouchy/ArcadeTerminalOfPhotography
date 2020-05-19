@@ -18,7 +18,7 @@ export default (props) =>
                     const nbPixels = 15
                     console.log('pixX, pixY')
                     console.log(pixX, pixY)
-                    col = p5Instance.get(p5Instance.width * (pixX + 0.5) / nbPixels, p5Instance.height * (pixY + 0.5) / nbPixels)
+                    col = p5Instance.get(p5Instance.width * (pixX + 0.5) / nbPixels, p5Instance.height * (1 - (pixY + 0.5) / nbPixels))
                 }
                 p.setup = () => {
                     p.createCanvas(100, 100)

@@ -51,5 +51,10 @@ export default {
             zoomOnImgX: clic.x,
             zoomOnImgY: clic.y,
         }
-    }
+    },
+    setPixel: (coords) => state => ({
+        ...state,
+        zoomOnPixX: coords.x,
+        zoomOnPixY: coords.y,
+    })
 }
