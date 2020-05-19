@@ -18,7 +18,7 @@ export default (props) =>
                 p.setup = () => {
                     const ratio = img.width / img.height
                     p.createCanvas(props.height * ratio, props.height, p.WEBGL)
-                    pg = p.createGraphics(img.width, img.height, p.WEBGL)
+                    pg = p.createGraphics(props.height * ratio, props.height, p.WEBGL)
                     p.onParametersChanged(props.editParameters, props.zoom)
                     p.noLoop()
                 }
