@@ -51,8 +51,16 @@ export default (props) =>
                     p.bDragging = false
                 }
                 p.mouseDragged = () => {
-                    if (p.bDragging)
-                        p.trySetPixel()
+                    if (p.bDragging) {
+                        const o = {
+                            x: p.mouseX/p.width,
+                            y: p.mouseY/p.height
+                        }
+                        props.setPixel({
+                            x: Math.min(Math.max(Math.floor(o.x * 15), 0), 14),
+                            y: Math.min(Math.max(Math.floor(o.y * 15), 0), 14),
+                        })
+                    }
                 }
                 p.onEditedImageChanged = (p5Instance, zoomPosX, zoomPosY, pixX, pixY) => {
                     p.bDrawingStarted = true
