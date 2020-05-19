@@ -1,4 +1,5 @@
 export default {
+    imgHeight: 400,
     editParameters: {
         luminosity: 0,
         contrast : 0,

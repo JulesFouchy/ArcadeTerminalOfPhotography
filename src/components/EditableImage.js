@@ -53,15 +53,25 @@ export default (props) =>
                     return false
                 }
                 p.mousePressed = () => {
-                    if (p.trySetZoomPos())
+                    const o = {
+                        x: p.mouseX/p.width,
+                        y: p.mouseY/p.height
+                    }
+                    if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1) {
                         p.bDragging = true
+                    }
                 }
                 p.mouseReleased = () => {
                     p.bDragging = false
                 }
                 p.mouseDragged = () => {
-                    if (p.bDragging)
-                        p.trySetZoomPos()
+                    if (p.bDragging) {
+                        const o = {
+                            x: p.mouseX/p.width,
+                            y: p.mouseY/p.height
+                        }
+                        props.setZoomOnImgPosition(o)
+                    }
                 }
                 p.renderOnPg = (thepg, theshader, editParameters) => {
                     thepg.shader(theshader)

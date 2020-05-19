@@ -46,10 +46,12 @@ export default {
         }
     },
     setZoomOnImgPosition: (clic) => state => {
+        const ratio = state.p5editingImg.width / state.p5editingImg.height
+        const m = state.zoomOnImgHeightProportion / 2
         return {
             ...state,
-            zoomOnImgX: clic.x,
-            zoomOnImgY: clic.y,
+            zoomOnImgX: Math.max(Math.min(clic.x, 1-m/ratio), m/ratio),
+            zoomOnImgY: Math.max(Math.min(clic.y, 1-m), m),
         }
     },
     setPixel: (coords) => state => ({

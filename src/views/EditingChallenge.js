@@ -12,7 +12,7 @@ export default (state, actions) => {
             title: 'Editing Challenge',
             children: [
                 EditableImage({
-                    height: 400,
+                    height: state.imgHeight,
                     src: TestImg,
                     p5editingImg: state.p5editingImg,
                     editParameters: state.editParameters,
