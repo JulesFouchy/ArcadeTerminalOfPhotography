@@ -59,6 +59,7 @@ export default (props) =>
                     }
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1) {
                         p.bDragging = true
+                        props.setZoomOnImgPosition(o)
                     }
                 }
                 p.mouseReleased = () => {
