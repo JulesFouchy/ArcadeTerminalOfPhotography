@@ -10,7 +10,9 @@ export default (props) =>
                 p.bDragging = false
                 let img
                 let pg
+                let pgExport
                 const shader = new p5.Shader(p._renderer, VertexSource, FragmentSource)
+                const shader2 = new p5.Shader(p._renderer, VertexSource, FragmentSource)
                 p.getPG = () => pg
                 p.preload = () => {
                     img = p.loadImage(props.src)
@@ -19,6 +21,7 @@ export default (props) =>
                     const ratio = img.width / img.height
                     p.createCanvas(props.height * ratio, props.height, p.WEBGL)
                     pg = p.createGraphics(props.height * ratio, props.height, p.WEBGL)
+                    pgExport = p.createGraphics(img.width, img.height, p.WEBGL)
                     p.onParametersChanged(props.editParameters, props.zoom)
                     p.noLoop()
                 }
@@ -60,19 +63,20 @@ export default (props) =>
                     if (p.bDragging)
                         p.trySetZoomPos()
                 }
-                p.download = () => {
-                    pg.save('myImage.jpg')
+                p.renderOnPg = (thepg, theshader, editParameters) => {
+                    thepg.shader(theshader)
+                    theshader.setUniform('tex0', img)
+                    theshader.setUniform('u_luminosity',   editParameters.luminosity)
+                    theshader.setUniform('u_contrast',     editParameters.contrast)
+                    theshader.setUniform('u_saturation',   editParameters.saturation)
+                    theshader.setUniform('u_whiteBalance', editParameters.whiteBalance)
+                    theshader.setUniform('u_tint',         editParameters.tint)
+                    //theshader.setUniform('u_rgbShift', editParameters.rgbShift)
+                    thepg.rect(0, 0, 0, 0)
                 }
                 p.onParametersChanged = (editParameters, zoom) => {
-                    pg.shader(shader)
-                    shader.setUniform('tex0', img)
-                    shader.setUniform('u_luminosity',   editParameters.luminosity)
-                    shader.setUniform('u_contrast',     editParameters.contrast)
-                    shader.setUniform('u_saturation',   editParameters.saturation)
-                    shader.setUniform('u_whiteBalance', editParameters.whiteBalance)
-                    shader.setUniform('u_tint',         editParameters.tint)
-                    //shader.setUniform('u_rgbShift', editParameters.rgbShift)
-                    pg.rect(0, 0, 0, 0)
+                    p.lastEditParameters = editParameters
+                    p.renderOnPg(pg, shader, editParameters)
                     p.image(pg, -p.width/2, -p.height/2, p.width, p.height)
                     // Frame of zoom
                     p.fill(255, 0, 0)
@@ -87,6 +91,10 @@ export default (props) =>
                     p.rect(x-s/2, y+s/2, s, weight)
                     p.rect(x-s/2-weight, y-s/2-weight, weight, s + 2*weight)
                     p.rect(x+s/2, y-s/2-weight, weight, s + 2*weight)
+                }
+                p.download = () => {
+                    p.renderOnPg(pgExport, shader2, p.lastEditParameters)
+                    pgExport.save('myImage.jpg')
                 }
             })
             props.withP5Instance(myP5)
