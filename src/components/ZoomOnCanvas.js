@@ -16,6 +16,7 @@ export default (props) =>
         oncreate: () => {
             // Create a P5 canvas
             const myP5 = new p5( p => {
+                p.bDragging = false
                 let img
                 let pg
                 const shader = new p5.Shader(p._renderer, VertexSource, FragmentSource)
@@ -38,13 +39,20 @@ export default (props) =>
                             x: Math.floor(o.x * 15),
                             y: Math.floor(o.y * 15),
                         })
+                        return true
                     }
+                    return false
                 }
                 p.mousePressed = () => {
-                    p.trySetPixel()
+                    if (p.trySetPixel())
+                        p.bDragging = true
+                }
+                p.mouseReleased = () => {
+                    p.bDragging = false
                 }
                 p.mouseDragged = () => {
-                    p.trySetPixel()
+                    if (p.bDragging)
+                        p.trySetPixel()
                 }
                 p.onEditedImageChanged = (p5Instance, zoomPosX, zoomPosY, pixX, pixY) => {
                     p.bDrawingStarted = true
