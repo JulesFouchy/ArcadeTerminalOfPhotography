@@ -56,6 +56,9 @@ void main() {
     //vec3 wbColor = pow(vec3(48./255., 141./255., 255./255.), vec3(u_whiteBalance));
     float wb = u_whiteBalance * 0.3;
     col = tint2Color(col, vec3(247./255., 191./255., 22./255.), vec3(48./255., 141./255., 255./255.), wb);
+    // Tint
+    float tint = u_tint * 0.3;
+    col = tint2Color(col, vec3(217./255., 29./255., 242./255.), vec3(29./255., 242./255., 54./255.), tint);
     //
     gl_FragColor = vec4(col, 1.0);
 }
