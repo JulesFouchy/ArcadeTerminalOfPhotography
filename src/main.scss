@@ -32,6 +32,10 @@ body {
 	color: rgba($color: #000000, $alpha: 0.79);
 }
 
+.whiteText {
+	color: white;
+}
+
 ::selection {
 	background: rgba($color: $myBlue, $alpha: 0.5);
 }

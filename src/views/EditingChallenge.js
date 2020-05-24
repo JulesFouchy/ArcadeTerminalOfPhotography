@@ -9,7 +9,10 @@ import EditSettings from './EditSettings'
 export default (state, actions) => {
     return (
         Page({
-            title: 'EDITING CHALLENGE',
+            title: h('span', {}, [
+                h('span', {class: 'whiteText'}, 'EDITING'),
+                ' CHALLENGE',
+            ]),
             children: [
                 h('div', {id: 'canvasesContainer'}, h('div', {id: 'canvasesRight'})),
                 EditableImage({
