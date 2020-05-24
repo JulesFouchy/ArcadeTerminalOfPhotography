@@ -1,4 +1,6 @@
 $myBlue: #3A4EFF;
+$myGreen: #0BE76F;
+$myRed: #E72323;
 
 /* --------------------------------- */
 /* -------- BODY & SECTIONS -------- */
@@ -46,6 +48,22 @@ body {
 	box-sizing: border-box;
 	box-shadow: 0 0 8px 2px $myBlue;
 	margin: 30px;
+}
+
+.R {
+	text-shadow: -1px  1px 0    $myRed, // text outline
+				1px  1px 0    $myRed, // text outline
+				1px -1px 0    $myRed, // text outline
+			-1px -1px 0    $myRed, // text outline
+			0    0   20px $myRed; // glow
+}
+
+.G {
+	text-shadow: -1px  1px 0    $myGreen, // text outline
+				1px  1px 0    $myGreen, // text outline
+				1px -1px 0    $myGreen, // text outline
+			-1px -1px 0    $myGreen, // text outline
+			0    0   20px $myGreen; // glow
 }
 
 /* --------------------------------- */
@@ -97,4 +115,19 @@ canvas {
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: center;
+}
+
+#canvasesRightTopRight {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: center;
+}
+
+/* --------------------------------- */
+/* ---------- PIXEL INFO ----------- */
+/* --------------------------------- */
+
+#pixelValues {
+	display: flex;
+	flex-direction: row;
 }

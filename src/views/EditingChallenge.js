@@ -15,7 +15,17 @@ export default (state, actions) => {
                 ' CHALLENGE',
             ]),
             children: [
-                h('div', {id: 'canvasesContainer'}, h('div', {id: 'canvasesRight'})),
+                h('div', {id: 'canvasesContainer'},
+                    h('div', {id: 'canvasesRight'}, 
+                        h('div', {id: 'canvasesRightTopRight'},
+                            h('div', {id: 'pixelValues'}, [
+                                ColorValue('R', state.pixelCol.r),
+                                ColorValue('G', state.pixelCol.g),
+                                ColorValue('B', state.pixelCol.b),
+                            ]),
+                        )
+                    )
+                ),
                 EditableImage({
                     canvasContainerId: 'canvasesContainer',
                     height: state.imgHeight,
@@ -46,7 +56,7 @@ export default (state, actions) => {
                     setPixel: (coords) => actions.setPixel(coords)
                 }),
                 ZoomOnPixel({
-                    canvasContainerId: 'canvasesRight',
+                    canvasContainerId: 'canvasesRightTopRight',
                     p5zoomOnPixel: state.p5zoomOnPixel,
                     p5zoomOnImg: state.p5zoomOnImg,
                     pixX: state.zoomOnPixX,
@@ -54,9 +64,6 @@ export default (state, actions) => {
                     onZoomedPixelChange: (newCol) => actions.setPixelCol(newCol),
                     withP5Instance: (p5instance) => actions.setZoomOnPixelP5(p5instance),
                 }),
-                ColorValue('R', state.pixelCol.r),
-                ColorValue('G', state.pixelCol.g),
-                ColorValue('B', state.pixelCol.b),
                 EditSettings(state, actions),
                 h('button', {
                     onclick: state.downloadFunction
