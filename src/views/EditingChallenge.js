@@ -3,7 +3,8 @@ import Page from '../components/Page'
 import EditableImage from '../components/EditableImage'
 import ZoomOnCanvas from '../components/ZoomOnCanvas'
 import ZoomOnPixel from '../components/ZoomOnPixel'
-import TestImg from '../testImg.jpg'
+import BaseImg from '../baseImg.jpg'
+import TargetImg from '../targetImg.jpg'
 import EditSettings from './EditSettings'
 import ColorValue from '../components/ColorValue'
 
@@ -16,20 +17,25 @@ export default (state, actions) => {
             ]),
             children: [
                 h('div', {id: 'canvasesContainer'},
-                    h('div', {id: 'canvasesRight'}, 
-                        h('div', {id: 'canvasesRightTopRight'},
-                            h('div', {id: 'pixelValues'}, [
-                                ColorValue('R', state.pixelCol.r),
-                                ColorValue('G', state.pixelCol.g),
-                                ColorValue('B', state.pixelCol.b),
-                            ]),
+                    h('div', {id: 'canvasesRight'}, [
+                        h('div', {id: 'canvasesRightTop'},
+                            h('div', {id: 'canvasesRightTopRight'},
+                                h('div', {id: 'pixelValues'}, [
+                                    ColorValue('R', state.pixelCol.r),
+                                    ColorValue('G', state.pixelCol.g),
+                                    ColorValue('B', state.pixelCol.b),
+                                ]),
+                            ),
+                        ),
+                        h('div', {id: 'canvasesRightBot'},
+                            h('img', {src: TargetImg, height: state.imgHeight/2})
                         )
-                    )
+                    ])
                 ),
                 EditableImage({
                     canvasContainerId: 'canvasesContainer',
                     height: state.imgHeight,
-                    src: TestImg,
+                    src: BaseImg,
                     p5editingImg: state.p5editingImg,
                     editParameters: state.editParameters,
                     zoom: {
@@ -44,7 +50,7 @@ export default (state, actions) => {
                     setZoomOnImgPosition: (clic) => actions.setZoomOnImgPosition(clic)
                 }),
                 ZoomOnCanvas({
-                    canvasContainerId: 'canvasesRight',
+                    canvasContainerId: 'canvasesRightTop',
                     p5zoomOnImg: state.p5zoomOnImg,
                     p5editingImg: state.p5editingImg,
                     zoomPosX: state.zoomOnImgX,

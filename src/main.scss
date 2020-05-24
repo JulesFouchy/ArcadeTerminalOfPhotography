@@ -96,7 +96,7 @@ html .dragging {
 /* ----------- CANVASES ------------ */
 /* --------------------------------- */
 
-canvas {
+canvas, img {
 	margin: 10px;
 	padding: 3px;
 	background-color: rgba($color: $myBlue, $alpha: 0.3);
@@ -113,9 +113,16 @@ canvas {
 
 #canvasesRight {
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#canvasesRightTop {
+	display: flex;
 	flex-direction: row-reverse;
 	justify-content: center;
 }
+
 
 #canvasesRightTopRight {
 	display: flex;
