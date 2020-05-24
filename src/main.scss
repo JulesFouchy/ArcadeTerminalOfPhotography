@@ -137,4 +137,9 @@ canvas, img {
 #pixelValues {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-around;
+}
+
+.colorValue {
+	width: 2em;
 }
