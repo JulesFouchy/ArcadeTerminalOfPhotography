@@ -17,4 +17,9 @@ export default {
     zoomOnImgHeightProportion: 0.05,
     zoomOnPixX: 7,
     zoomOnPixY: 7,
+    pixelCol: {
+        r: 0,
+        g: 0,
+        b: 0,
+    }
 }

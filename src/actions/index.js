@@ -62,5 +62,9 @@ export default {
     setDownloadFunction: (f) => state => ({
         ...state,
         downloadFunction: f,
+    }),
+    setPixelCol: (newCol) => state => ({
+        ...state,
+        pixelCol: newCol
     })
 }

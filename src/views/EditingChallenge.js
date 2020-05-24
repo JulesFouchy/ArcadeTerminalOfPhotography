@@ -5,6 +5,7 @@ import ZoomOnCanvas from '../components/ZoomOnCanvas'
 import ZoomOnPixel from '../components/ZoomOnPixel'
 import TestImg from '../testImg.jpg'
 import EditSettings from './EditSettings'
+import ColorValue from '../components/ColorValue'
 
 export default (state, actions) => {
     return (
@@ -50,8 +51,12 @@ export default (state, actions) => {
                     p5zoomOnImg: state.p5zoomOnImg,
                     pixX: state.zoomOnPixX,
                     pixY: state.zoomOnPixY,
+                    onZoomedPixelChange: (newCol) => actions.setPixelCol(newCol),
                     withP5Instance: (p5instance) => actions.setZoomOnPixelP5(p5instance),
                 }),
+                ColorValue('R', state.pixelCol.r),
+                ColorValue('G', state.pixelCol.g),
+                ColorValue('B', state.pixelCol.b),
                 EditSettings(state, actions),
                 h('button', {
                     onclick: state.downloadFunction
