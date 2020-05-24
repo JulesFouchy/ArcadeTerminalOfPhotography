@@ -11,7 +11,9 @@ export default (state, actions) => {
         Page({
             title: 'EDITING CHALLENGE',
             children: [
+                h('div', {id: 'canvasesContainer'}, h('div', {id: 'canvasesRight'})),
                 EditableImage({
+                    canvasContainerId: 'canvasesContainer',
                     height: state.imgHeight,
                     src: TestImg,
                     p5editingImg: state.p5editingImg,
@@ -28,6 +30,7 @@ export default (state, actions) => {
                     setZoomOnImgPosition: (clic) => actions.setZoomOnImgPosition(clic)
                 }),
                 ZoomOnCanvas({
+                    canvasContainerId: 'canvasesRight',
                     p5zoomOnImg: state.p5zoomOnImg,
                     p5editingImg: state.p5editingImg,
                     zoomPosX: state.zoomOnImgX,
@@ -39,6 +42,7 @@ export default (state, actions) => {
                     setPixel: (coords) => actions.setPixel(coords)
                 }),
                 ZoomOnPixel({
+                    canvasContainerId: 'canvasesRight',
                     p5zoomOnPixel: state.p5zoomOnPixel,
                     p5zoomOnImg: state.p5zoomOnImg,
                     pixX: state.zoomOnPixX,

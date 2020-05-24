@@ -34,7 +34,7 @@ export default (props) =>
                     p.fill(0, 0, p.blue(col))
                     p.rect(2*w, 0, w, p.height)
                 }
-            })
+            }, props.canvasContainerId)
             props.withP5Instance(myP5)
             //
         },

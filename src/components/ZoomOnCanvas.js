@@ -87,7 +87,7 @@ export default (props) =>
                     // bot
                     p.rect(x-s/2, y+s/2-weight, s, weight)
                 }
-            })
+            }, props.canvasContainerId)
             props.withP5Instance(myP5)
             //
         },

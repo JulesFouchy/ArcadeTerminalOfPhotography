@@ -43,16 +43,6 @@ body {
 	margin: 30px;
 }
 
-.sliderBox {
-	width: 12vw;
-}
-
-#editSettings {
-	display: flex;
-	flex-direction: row;
-	align-content: space-around;
-}
-
 /* --------------------------------- */
 /* ------------ SLIDERS ------------ */
 /* --------------------------------- */
@@ -67,4 +57,34 @@ body {
 
 html .dragging {
 	cursor: ew-resize;
+}
+
+.sliderBox {
+	width: 12vw;
+}
+
+#editSettings {
+	display: flex;
+	flex-direction: row;
+	align-content: space-around;
+}
+
+/* --------------------------------- */
+/* ----------- CANVASES ------------ */
+/* --------------------------------- */
+
+canvas {
+	margin: 10px;
+}
+
+#canvasesContainer {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+}
+
+#canvasesRight {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
 }

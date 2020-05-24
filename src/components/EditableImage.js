@@ -121,7 +121,7 @@ export default (props) =>
                     p.renderOnPg(pgExport, shader2, shaderRgbShift2, p.lastEditParameters)
                     pgExport.save('myImage.jpg')
                 }
-            })
+            }, props.canvasContainerId)
             props.withP5Instance(myP5)
             //
         },
