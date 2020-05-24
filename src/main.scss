@@ -32,6 +32,10 @@ body {
 	color: rgba($color: #000000, $alpha: 0.79);
 }
 
+::selection {
+	background: rgba($color: $myBlue, $alpha: 0.5);
+}
+
 .neonBox {
 	border: 4px solid $myBlue;
 	box-sizing: border-box;
