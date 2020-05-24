@@ -1,13 +1,14 @@
 import { h } from 'hyperapp'
 import NeonBox from './NeonBox'
+import Highlight from './Highlight'
 
 export default (props) =>
     NeonBox({children: [
         h('div', {
             class: 'sliderBox',
         }, [
-            h('p', {}, props.name),
-            h('p', {
+            Highlight(h('p', {}, props.name)),
+            Highlight(h('p', {
                 class: 'draggableValue',
                 onselectstart: e => {
                     e.preventDefault()
@@ -15,6 +16,6 @@ export default (props) =>
                 },
             }, 
                 props.value.toFixed(2)
-            ),
+            )),
         ])
     ]})

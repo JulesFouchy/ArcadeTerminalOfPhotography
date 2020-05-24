@@ -3,7 +3,7 @@ import SliderBox from '../components/SliderBox'
 
 const createSliderBox = (target, state, actions) => 
     SliderBox({
-        name: target,
+        name: target.toUpperCase(),
         value: state.editParameters[target],
         onDragStart: () => actions.startDragging(target)
     })

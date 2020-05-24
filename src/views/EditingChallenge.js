@@ -9,7 +9,7 @@ import EditSettings from './EditSettings'
 export default (state, actions) => {
     return (
         Page({
-            title: 'Editing Challenge',
+            title: 'EDITING CHALLENGE',
             children: [
                 EditableImage({
                     height: state.imgHeight,
