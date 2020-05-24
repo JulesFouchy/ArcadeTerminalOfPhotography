@@ -1,9 +1,18 @@
 import { h } from 'hyperapp'
 import SliderBox from '../components/SliderBox'
 
+const nameOfParam = (param) => {
+    const name = param.toUpperCase()
+    if (name === 'RGBSHIFT')
+        return 'RGB SHIFT'
+    if (name === 'WHITEBALANCE')
+        return 'TEMPERATURE'
+    return name
+}
+
 const createSliderBox = (target, state, actions) => 
     SliderBox({
-        name: target.toUpperCase(),
+        name: nameOfParam(target),
         value: state.editParameters[target],
         onDragStart: () => actions.startDragging(target)
     })
