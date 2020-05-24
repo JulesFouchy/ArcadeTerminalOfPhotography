@@ -114,20 +114,24 @@ canvas, img {
 #canvasesRight {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 }
 
 #canvasesRightTop {
 	display: flex;
 	flex-direction: row-reverse;
-	justify-content: center;
+	justify-content: flex-end;
+	margin-left: 16px;
 }
-
 
 #canvasesRightTopRight {
 	display: flex;
 	flex-direction: column-reverse;
 	justify-content: center;
+}
+
+#canvasesRightBot {
+	margin-left: 16px;
 }
 
 /* --------------------------------- */

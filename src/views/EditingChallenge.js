@@ -28,7 +28,7 @@ export default (state, actions) => {
                             ),
                         ),
                         h('div', {id: 'canvasesRightBot'},
-                            h('img', {src: TargetImg, height: state.imgHeight/2})
+                            h('img', {src: TargetImg, height: state.imgHeight*0.55})
                         )
                     ])
                 ),
