@@ -33,6 +33,7 @@ export default (state, actions) => {
                     ])
                 ),
                 EditableImage({
+                    scale: state.scale,
                     canvasContainerId: 'canvasesContainer',
                     height: state.imgHeight,
                     src: BaseImg,
@@ -50,6 +51,7 @@ export default (state, actions) => {
                     setZoomOnImgPosition: (clic) => actions.setZoomOnImgPosition(clic)
                 }),
                 ZoomOnCanvas({
+                    scale: state.scale,
                     canvasContainerId: 'canvasesRightTop',
                     p5zoomOnImg: state.p5zoomOnImg,
                     p5editingImg: state.p5editingImg,

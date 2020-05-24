@@ -30,24 +30,24 @@ export default (props) =>
                 }
                 p.mousePressed = () => {
                     const o = {
-                        x: p.mouseX/p.width,
-                        y: p.mouseY/p.height
+                        x: p.mouseX/p.width*props.scale,
+                        y: p.mouseY/p.height*props.scale
                     }
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1)
                         props.setZoomOnImgPosition(o)
                 }
                 p.mouseDragged = () => {
                     const o = {
-                        x: p.mouseX/p.width,
-                        y: p.mouseY/p.height
+                        x: p.mouseX/p.width*props.scale,
+                        y: p.mouseY/p.height*props.scale
                     }
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1)
                         props.setZoomOnImgPosition(o)
                 }
                 p.trySetZoomPos = () => {
                     const o = {
-                        x: p.mouseX/p.width,
-                        y: p.mouseY/p.height
+                        x: p.mouseX/p.width*props.scale,
+                        y: p.mouseY/p.height*props.scale
                     }
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1) {
                         props.setZoomOnImgPosition(o)
@@ -57,8 +57,8 @@ export default (props) =>
                 }
                 p.mousePressed = () => {
                     const o = {
-                        x: p.mouseX/p.width,
-                        y: p.mouseY/p.height
+                        x: p.mouseX/p.width*props.scale,
+                        y: p.mouseY/p.height*props.scale
                     }
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1) {
                         p.bDragging = true
@@ -71,8 +71,8 @@ export default (props) =>
                 p.mouseDragged = () => {
                     if (p.bDragging) {
                         const o = {
-                            x: p.mouseX/p.width,
-                            y: p.mouseY/p.height
+                            x: p.mouseX/p.width*props.scale,
+                            y: p.mouseY/p.height*props.scale
                         }
                         props.setZoomOnImgPosition(o)
                     }

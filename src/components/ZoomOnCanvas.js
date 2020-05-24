@@ -31,8 +31,8 @@ export default (props) =>
                 }
                 p.trySetPixel = () => {
                     const o = {
-                        x: p.mouseX/p.width,
-                        y: p.mouseY/p.height
+                        x: p.mouseX/p.width*props.scale,
+                        y: p.mouseY/p.height*props.scale
                     }
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1) {
                         props.setPixel({
@@ -53,8 +53,8 @@ export default (props) =>
                 p.mouseDragged = () => {
                     if (p.bDragging) {
                         const o = {
-                            x: p.mouseX/p.width,
-                            y: p.mouseY/p.height
+                            x: p.mouseX/p.width*props.scale,
+                            y: p.mouseY/p.height*props.scale
                         }
                         props.setPixel({
                             x: Math.min(Math.max(Math.floor(o.x * 15), 0), 14),
