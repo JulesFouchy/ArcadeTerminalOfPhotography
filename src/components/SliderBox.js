@@ -6,7 +6,7 @@ export default (props) =>
     NeonBox({children: [
         h('div', {class: 'infoDot'}, [
             'i',
-            h('span', {class: 'tooltiptext'}, 'The Saturation is the "intensity" of the color.\nFor example, a saturation of -1 means no color at all, thus making the image Black&White.')
+            h('span', {class: 'tooltiptext'}, props.tooltipText)
         ]),
         h('div', {
             class: 'sliderBox',
