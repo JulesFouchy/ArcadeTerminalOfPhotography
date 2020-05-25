@@ -64,6 +64,15 @@ body {
 	}
 	box-sizing: border-box;
 	margin: 30px;
+
+	.buttonText {
+		margin: 12px 27px;
+		font-size: 20px;
+	}
+
+	h3 {
+		margin: 15px 30px;
+	}
 }
 
 .myButton:hover {

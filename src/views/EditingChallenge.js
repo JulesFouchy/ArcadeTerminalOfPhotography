@@ -15,7 +15,7 @@ export default (state, actions) => {
             h('div', {id: 'topContainer'}, [
                 Button({
                     children: [
-                        h('div', {}, h('span', {}, [
+                        h('div', {}, h('p', {class: 'buttonText'}, [
                             h('span', {class: 'whiteText'}, 'BACK TO'),
                             ' MENU',
                         ])),
@@ -30,7 +30,7 @@ export default (state, actions) => {
                 ]}),
                 Button({
                     children: [
-                        h('div', {}, h('span', {}, [
+                        h('div', {}, h('p', {class: 'buttonText'}, [
                             h('span', {class: 'whiteText'}, 'DOWNLOAD'),
                             ' RESULT',
                         ])),
