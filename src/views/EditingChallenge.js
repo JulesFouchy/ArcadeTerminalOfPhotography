@@ -16,10 +16,11 @@ export default (state, actions) => {
                 Button({
                     children: [
                         h('div', {}, h('p', {class: 'buttonText'}, [
-                            h('span', {class: 'whiteText'}, 'BACK TO'),
-                            ' MENU',
+                            h('span', {class: 'whiteText'}, 'RESET'),
+                            ' EFFECTS',
                         ])),
                     ],
+                    onclick: actions.resetParameters,
                     color: 'R',
                 }),
                 Box({children: [

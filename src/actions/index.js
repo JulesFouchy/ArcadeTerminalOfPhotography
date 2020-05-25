@@ -66,5 +66,16 @@ export default {
     setPixelCol: (newCol) => state => ({
         ...state,
         pixelCol: newCol
-    })
+    }),
+    resetParameters: () => state => ({
+        ...state,
+        editParameters: {
+            luminosity: 0,
+            contrast : 0,
+            saturation: 0,
+            whiteBalance: 0,
+            tint: 0,
+            rgbShift: 0,
+        },
+    }),
 }
