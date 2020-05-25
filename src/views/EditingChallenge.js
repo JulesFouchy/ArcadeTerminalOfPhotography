@@ -20,6 +20,7 @@ export default (state, actions) => {
                             ' MENU',
                         ])),
                     ],
+                    color: 'R',
                 }),
                 Box({children: [
                     h('h3', {class: 'pageTitle'}, h('span', {}, [
@@ -34,7 +35,8 @@ export default (state, actions) => {
                             ' RESULT',
                         ])),
                     ],
-                    onclick: state.downloadFunction
+                    onclick: state.downloadFunction,
+                    color: 'G',
                 }),
             ]),
             h('div', {id: 'canvasesContainer'},
