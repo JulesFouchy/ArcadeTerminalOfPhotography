@@ -11,17 +11,9 @@ const tryUpdate = (p5editingImg, p5zoomOnImg, zoomPosX, zoomPosY, pixX, pixY) =>
     }
 }
 
-const fix = (_pos, scale) => {
-    let pos = {..._pos}
-    pos.x *= scale
-    pos.y *= scale
-    return pos
-}
-
 export default (props) =>
     h('div', {
         oncreate: () => {
-            console.log(window.innerWidth)
             // Create a P5 canvas
             const myP5 = new p5( p => {
                 p.bDragging = false
@@ -37,16 +29,11 @@ export default (props) =>
                     pg = p.createGraphics(200, 200, p.WEBGL)
                     p.noLoop()
                 }
-                p.normalizedMouse = () => {
-                    const mouse = fix({x: p.mouseX, y: p.mouseY}, props.scale)
-                    const o = {
-                        x: mouse.x/p.width,
-                        y: mouse.y/p.height,
-                    }
-                    return o
-                }
                 p.trySetPixel = () => {
-                    const o = p.normalizedMouse()
+                    const o = {
+                        x: p.mouseX/p.width*props.scale,
+                        y: p.mouseY/p.height*props.scale
+                    }
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1) {
                         props.setPixel({
                             x: Math.floor(o.x * 15),
@@ -65,7 +52,10 @@ export default (props) =>
                 }
                 p.mouseDragged = () => {
                     if (p.bDragging) {
-                        const o = p.normalizedMouse()
+                        const o = {
+                            x: p.mouseX/p.width*props.scale,
+                            y: p.mouseY/p.height*props.scale
+                        }
                         props.setPixel({
                             x: Math.min(Math.max(Math.floor(o.x * 15), 0), 14),
                             y: Math.min(Math.max(Math.floor(o.y * 15), 0), 14),
