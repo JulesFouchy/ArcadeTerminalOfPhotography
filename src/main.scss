@@ -137,10 +137,15 @@ body {
 /* Tooltip text */
 .tooltiptext {
 	bottom: 100%;
-	left: 50%;
+	&.left {
+		left: 50%;
+	}
+	&.right {
+		right: 50%;
+	}
+	text-align: left;
 	width: 400px;
 
-	text-align: left;
 	padding: 10px;
 
 	visibility: hidden;

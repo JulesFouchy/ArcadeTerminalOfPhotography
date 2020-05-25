@@ -32,6 +32,7 @@ const createSliderBox = (target, state, actions) =>
     SliderBox({
         name: nameOfParam(target),
         tooltipText: tooltipText(target),
+        tooltipPos: (target === 'luminosity' || target === 'contrast' || target === 'saturation') ? 'left' : 'right',
         value: state.editParameters[target],
         onDragStart: () => actions.startDragging(target)
     })

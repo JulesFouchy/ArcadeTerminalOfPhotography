@@ -6,7 +6,7 @@ export default (props) =>
     NeonBox({children: [
         h('div', {class: 'infoDot'}, [
             'i',
-            h('span', {class: 'tooltiptext'}, props.tooltipText)
+            h('span', {class: 'tooltiptext ' + props.tooltipPos}, props.tooltipText)
         ]),
         h('div', {
             class: 'sliderBox',
