@@ -138,16 +138,14 @@ body {
 .tooltiptext {
 	bottom: 100%;
 	left: 50%;
+	width: 400px;
 
 	text-align: left;
-
-	width: 400px;
+	padding: 10px;
 
 	visibility: hidden;
 	background-color: rgba($color: black, $alpha: 0.8);
 	color: #fff;
-	text-align: center;
-	padding: 5px 0;
 	border-radius: 6px;
 
 	position: absolute;

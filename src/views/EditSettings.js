@@ -20,7 +20,7 @@ const tooltipText = (paramName) => {
             return `The Saturation is the "intensity" of the color. \n
                     For example, a saturation of -1 means no color at all, thus making the image Black&White.`
         case 'whiteBalance':
-            return 'The Color Temperature refers to how yellowish or blueish an image is.'
+            return 'The Color Temperature refers to how yellowish or bluish an image is.'
         case 'tint':
             return 'The Tint is the level of red/violet in an image.'
         case 'rgbShift':
