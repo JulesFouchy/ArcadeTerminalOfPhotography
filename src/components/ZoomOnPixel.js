@@ -23,7 +23,7 @@ export default (props) =>
                     props.onZoomedPixelChange(p.col)
                 }
                 p.setup = () => {
-                    p.createCanvas(100, 100)
+                    p.createCanvas(146, 146)
                     p.noLoop()
                 }
                 p.onEditedImageChanged = (p5Instance, pixX, pixY) => {
