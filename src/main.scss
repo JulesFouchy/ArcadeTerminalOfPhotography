@@ -2,6 +2,11 @@ $myBlue: #3A4EFF;
 $myGreen: #0BE76F;
 $myRed: #E72323;
 
+// @font-face {
+//     font-family: 'OcrAExtended';
+//     src: url('OCRAEXT.TTF');
+// }
+
 /* --------------------------------- */
 /* -------- BODY & SECTIONS -------- */
 /* --------------------------------- */
@@ -99,6 +104,39 @@ body {
 				1px -1px 0    $myGreen, // text outline
 			-1px -1px 0    $myGreen, // text outline
 			0    0   20px $myGreen; // glow
+}
+
+.neonBox {
+	position: relative;
+}
+
+.infoDot {
+	position: absolute;
+	top:   -0.8em;
+	right: -0.8em;
+
+	height: 33px;
+	width: 33px;
+	background-color: rgba($color: white, $alpha: 0.9);
+	border: 2px solid $myBlue;
+	border-radius: 50%;
+	display: inline-block;
+	box-shadow: 0 0 4px 1px $myBlue;
+
+	// font-family: OcrAExtended;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	text-shadow: none;
+	color: $myBlue;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 /* --------------------------------- */

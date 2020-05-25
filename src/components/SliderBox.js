@@ -4,6 +4,7 @@ import Highlight from './Highlight'
 
 export default (props) =>
     NeonBox({children: [
+        h('div', {class: 'infoDot'}, 'i'),
         h('div', {
             class: 'sliderBox',
         }, [
