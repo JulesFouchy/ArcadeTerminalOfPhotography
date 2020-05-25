@@ -2,11 +2,6 @@ $myBlue: #3A4EFF;
 $myGreen: #0BE76F;
 $myRed: #E72323;
 
-// @font-face {
-//     font-family: 'OcrAExtended';
-//     src: url('OCRAEXT.TTF');
-// }
-
 /* --------------------------------- */
 /* -------- BODY & SECTIONS -------- */
 /* --------------------------------- */
@@ -123,10 +118,10 @@ body {
 	display: inline-block;
 	box-shadow: 0 0 4px 1px $myBlue;
 
-	// font-family: OcrAExtended;
+	font-family: 'Roboto Mono', monospace;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 24px;
+	font-size: 22px;
 	text-shadow: none;
 	color: $myBlue;
 
