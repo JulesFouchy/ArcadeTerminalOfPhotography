@@ -6,9 +6,15 @@ $myRed: #E72323;
 /* -------- BODY & SECTIONS -------- */
 /* --------------------------------- */
 
+html {
+	width: 100vw;
+}
+
 body {
-	// transform: scale(0.85);
-	// transform-origin: 0 0;
+	// transform-origin: center center;
+	transform: scale(0.8);
+	transform-origin: 50% 0%;
+
 	font-family: Noto Sans;
 	font-style: normal;
 	font-weight: 800;

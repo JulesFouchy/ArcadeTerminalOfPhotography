@@ -1,6 +1,6 @@
 export default {
     imgHeight: 500,
-    scale: 1,//1/0.85,
+    scale: 1/0.8,
     editParameters: {
         luminosity: 0,
         contrast : 0,

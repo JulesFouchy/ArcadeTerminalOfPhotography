@@ -3,6 +3,13 @@ import VertexSource from '../myShader.vert'
 import FragmentSource from '../myShader.frag'
 import RgbShiftSource from '../rgbShift.frag'
 
+const fix = (_pos, scale) => {
+    let pos = {..._pos}
+    pos.x *= scale
+    pos.y *= scale
+    return pos
+}
+
 export default (props) =>
     h('div', {
         oncreate: () => {
@@ -28,27 +35,26 @@ export default (props) =>
                     p.onParametersChanged(props.editParameters, props.zoom)
                     p.noLoop()
                 }
-                p.mousePressed = () => {
+                p.normalizedMouse = () => {
+                    const mouse = fix({x: p.mouseX, y: p.mouseY}, props.scale)
                     const o = {
-                        x: p.mouseX/p.width*props.scale,
-                        y: p.mouseY/p.height*props.scale
+                        x: mouse.x/p.width,
+                        y: mouse.y/p.height,
                     }
+                    return o
+                }
+                p.mousePressed = () => {
+                    const o = p.normalizedMouse()
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1)
                         props.setZoomOnImgPosition(o)
                 }
                 p.mouseDragged = () => {
-                    const o = {
-                        x: p.mouseX/p.width*props.scale,
-                        y: p.mouseY/p.height*props.scale
-                    }
+                    const o = p.normalizedMouse()
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1)
                         props.setZoomOnImgPosition(o)
                 }
                 p.trySetZoomPos = () => {
-                    const o = {
-                        x: p.mouseX/p.width*props.scale,
-                        y: p.mouseY/p.height*props.scale
-                    }
+                    const o = p.normalizedMouse()
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1) {
                         props.setZoomOnImgPosition(o)
                         return true
@@ -56,10 +62,7 @@ export default (props) =>
                     return false
                 }
                 p.mousePressed = () => {
-                    const o = {
-                        x: p.mouseX/p.width*props.scale,
-                        y: p.mouseY/p.height*props.scale
-                    }
+                    const o = p.normalizedMouse()
                     if (o.x > 0 && o.x < 1 && o.y > 0 && o.y < 1) {
                         p.bDragging = true
                         props.setZoomOnImgPosition(o)
@@ -70,10 +73,7 @@ export default (props) =>
                 }
                 p.mouseDragged = () => {
                     if (p.bDragging) {
-                        const o = {
-                            x: p.mouseX/p.width*props.scale,
-                            y: p.mouseY/p.height*props.scale
-                        }
+                        const o = p.normalizedMouse()
                         props.setZoomOnImgPosition(o)
                     }
                 }
