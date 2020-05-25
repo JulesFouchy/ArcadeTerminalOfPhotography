@@ -41,7 +41,7 @@ void main() {
     vec3 col = texture2D(tex0, uv).rgb;
 
     // Luminosity
-    float lum = -u_luminosity + 1.;
+    float lum = (-u_luminosity*0.5 + 1.);
     col = pow(col, vec3(lum));
     // Contrast
     float con = u_contrast * 0.1;
