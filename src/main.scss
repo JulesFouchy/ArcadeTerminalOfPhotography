@@ -12,7 +12,7 @@ body {
 	font-family: Noto Sans;
 	font-style: normal;
 	font-weight: 800;
-	font-size: 21px;
+	font-size: 18px;
 	line-height: 112.8%;
 	letter-spacing: 0.05em;
 	/* or 24px */
@@ -31,7 +31,7 @@ body {
 	display: flex;
 	align-items: center;
 	text-align: center;
-	margin: 1% 1%;
+	margin: 0% 1%;
 
 	background: black;
 	color: rgba($color: #000000, $alpha: 0.79);
@@ -52,22 +52,22 @@ body {
 }
 
 .neonBox, .myButton {
-	border: 4px solid $myBlue;
-	box-shadow: 0 0 8px 2px $myBlue;
+	border: 3px solid $myBlue;
+	box-shadow: 0 0 8px 1px $myBlue;
 	&.R {
-		border: 4px solid $myRed;
-		box-shadow: 0 0 8px 2px $myRed;
+		border: 2px solid $myRed;
+		box-shadow: 0 0 8px 1px $myRed;
 	}
 	&.G {
-		border: 4px solid $myGreen;
-		box-shadow: 0 0 8px 2px $myGreen;
+		border: 2px solid $myGreen;
+		box-shadow: 0 0 8px 1px $myGreen;
 	}
 	box-sizing: border-box;
-	margin: 30px;
+	margin: 24px 26px;
 
 	.buttonText {
-		margin: 12px 27px;
-		font-size: 20px;
+		margin:10px 25px;
+		font-size: 14px;
 	}
 
 	h3 {
@@ -110,8 +110,8 @@ body {
 	top:   -0.8em;
 	right: -0.8em;
 
-	height: 33px;
-	width: 33px;
+	height: 30px;
+	width: 30px;
 	background-color: rgba($color: white, $alpha: 0.9);
 	border: 2px solid $myBlue;
 	border-radius: 50%;
@@ -121,7 +121,7 @@ body {
 	font-family: 'Roboto Mono', monospace;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 22px;
+	font-size: 17px;
 	text-shadow: none;
 	color: $myBlue;
 
@@ -145,7 +145,7 @@ body {
 	}
 	text-align: left;
 	width: 400px;
-	font-size: 16px;
+	font-size: 14px;
 
 	padding: 10px;
 
@@ -168,7 +168,7 @@ body {
 /* --------------------------------- */
 
 .draggableValue {
-	font-size: 41px;
+	font-size: 25px;
 	color: white;
 	&:hover {
 		cursor: ew-resize;
@@ -194,12 +194,12 @@ html .dragging {
 /* --------------------------------- */
 
 canvas, img, button {
-	margin: 10px;
+	margin: 0 10px;
 	padding: 3px;
 	background-color: rgba($color: $myBlue, $alpha: 0.3);
-	border: 4px solid $myBlue;
+	border: 3px solid $myBlue;
 	box-sizing: border-box;
-	box-shadow: 0 0 8px 2px $myBlue;
+	box-shadow: 0 0 8px 1px $myBlue;
 }
 
 #canvasesContainer {
@@ -242,7 +242,7 @@ canvas, img, button {
 	justify-content: space-around;
 	p {
 		padding: 0;
-		margin: 0;
+		margin: 10px 0;
 	}
 }
 
