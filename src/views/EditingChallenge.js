@@ -97,6 +97,14 @@ export default (state, actions) => {
                 withP5Instance: (p5instance) => actions.setZoomOnPixelP5(p5instance),
             }),
             EditSettings(state, actions),
+            // Credits
+            h('div', {class: 'credits'}, [
+                'A project by ',
+                h('a', {href: "https://amandinek.com/"}, 'AMANDINE KOHLMULLER'),
+                ' and ',
+                h('a', {href: "https://julesfouchy.github.io/MyProjectsOverview/"}, 'JULES FOUCHY'),
+                ' for IMAC Interactivity class 2020.',
+            ])
         ])
     )
 }

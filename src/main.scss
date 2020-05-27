@@ -43,8 +43,12 @@ body {
 	justify-content: space-between;
 }
 
-.whiteText {
+.whiteText, a {
 	color: white;
+}
+
+.credits {
+	margin: 10px;
 }
 
 ::selection {
